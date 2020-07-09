@@ -1,2 +1,2 @@
 [server]
-dockerhost01 ansible_host=3.8.234.127 ansible_user=<user> ansible_password=<pass> ansible_become_pass=<pass>
+dockerhost01 ansible_host=<ip> ansible_user=<username> ansible_password=<pass> ansible_become_pass=<pass>

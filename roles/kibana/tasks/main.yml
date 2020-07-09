@@ -1,6 +1,6 @@
 ---
 
-- name: Run kibana container
+- name: run kibana container
   docker_container:
     name: elastiflow-kibana
     image: docker.elastic.co/kibana/kibana-oss:7.5.2

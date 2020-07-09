@@ -1,6 +1,6 @@
 ---
 
-- name: Run the elasticsearch container
+- name: run the elasticsearch container
   docker_container:
     name: elastiflow-elasticsearch
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.5.2

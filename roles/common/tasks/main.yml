@@ -1,6 +1,6 @@
 ---
 
-- name: Create elastiflow data folder
+- name: create elastiflow data folder
   file:
     state: directory
     recurse: yes

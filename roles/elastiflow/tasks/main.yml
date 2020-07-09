@@ -1,6 +1,6 @@
 ---
 
-- name: Run elastiflow container
+- name: run elastiflow container
   docker_container:
     name: elastiflow-logstash
     image: robcowart/elastiflow-logstash-oss:3.5.3

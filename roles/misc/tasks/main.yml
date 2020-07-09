@@ -1,19 +1,19 @@
 ---
 
-- name: Install softflowd
+- name: install softflowd
   apt:
     name: softflowd
     state: latest
     update_cache: yes
 
-- name: Configure softflowd
+- name: configure softflowd
   copy:
     src: default.conf
     dest: /etc/softflowd/default.conf
   notify:
     - reload softflowd
 
-- name: Pause play until a URL is reachable from this host
+- name: pause play until url is reachable from this host
   uri:
     url: "http://localhost:5601/app/kibana"
     follow_redirects: none
@@ -23,15 +23,15 @@
   retries: 720 # 720 * 5 seconds = 1hour (60*60/5)
   delay: 5 # Every 5 seconds
 
-- name: Download dashboards
+- name: download dashboards
   shell: 'curl -o /tmp/elastiflow.kibana.7.5.x.ndjson https://raw.githubusercontent.com/robcowart/elastiflow/master/kibana/elastiflow.kibana.7.5.x.ndjson'
   register: result
 
-- name: Upload the dashboard to Kibana
+- name: upload the dashboards to kibana
   shell: 'curl -X POST "http://localhost:5601/api/saved_objects/_import" -H "kbn-xsrf: true" --form file=@/tmp/elastiflow.kibana.7.5.x.ndjson'
   register: result
 
-- name: Get the public IP address of the server
+- name: get the public ip address of the server
   shell: curl http://ifconfig.me
   register: result
 

@@ -1,0 +1,23 @@
+---
+
+- name: Run elastiflow container
+  docker_container:
+    name: elastiflow-logstash
+    image: robcowart/elastiflow-logstash-oss:3.5.3
+    restart_policy: always
+    network_mode: host
+    env:
+       # JVM Heap size - this MUST be at least 3GB (4GB preferred)
+      LS_JAVA_OPTS: "-Xms4g -Xmx4g"
+
+      # ElastiFlow global configuration
+      ELASTIFLOW_DEFAULT_APPID_SRCTYPE: "__UNKNOWN"
+
+      # Name resolution option
+      ELASTIFLOW_RESOLVE_IP2HOST: "false"
+      ELASTIFLOW_NAMESERVER: "127.0.0.1"
+
+      ELASTIFLOW_NETFLOW_IPV4_PORT: "2055"
+      ELASTIFLOW_SFLOW_IPV4_PORT: "6343"
+      ELASTIFLOW_IPFIX_TCP_IPV4_PORT: "4739"     
+

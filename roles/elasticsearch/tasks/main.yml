@@ -1,0 +1,21 @@
+---
+
+- name: Run the elasticsearch container
+  docker_container:
+    name: elastiflow-elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.5.2
+    restart_policy: always
+    ulimits: memlock:-1:-1
+    network_mode: host
+    volumes:
+      - "/var/lib/elastiflow_es:/usr/share/elasticsearch/data"
+    env:
+      ES_JAVA_OPTS: "-Xms2g -Xmx2g"
+      cluster.name: "elastiflow"
+      bootstrap.memory_lock: "true"
+      network.host: "0.0.0.0"
+      http.port: "9200"
+      discovery.type: "single-node"
+      indices.query.bool.max_clause_count: "8192"
+      search.max_buckets: "100000"
+      action.destructive_requires_name: "true"

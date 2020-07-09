@@ -1,0 +1,9 @@
+---
+
+- name: Create elastiflow data folder
+  file:
+    state: directory
+    recurse: yes
+    path: /var/lib/elastiflow_es
+    owner: '1000'
+    group: '1000'

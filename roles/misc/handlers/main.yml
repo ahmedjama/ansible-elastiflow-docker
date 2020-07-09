@@ -1,0 +1,4 @@
+- name: reload softflowd
+  service:
+    name: softflowd
+    state: restarted

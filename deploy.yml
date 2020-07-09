@@ -1,0 +1,11 @@
+---
+- hosts: server
+  become: yes
+  gather_facts: no
+  roles:
+    - { role: common, tags: ['common'] }
+    - { role: docker, tags: ['docker'] }
+    - { role: elasticsearch, tags: ['elasticsearch'] }
+    - { role: kibana, tags: ['kibana'] }
+    - { role: elastiflow, tags: ['elastiflow'] }
+    - { role: misc, tags: ['misc'] }

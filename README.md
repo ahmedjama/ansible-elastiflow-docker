@@ -1,7 +1,7 @@
 # ansible-elastiflow-docker
 ElastiFlow™ provides network flow data collection and visualization using the Elastic Stack (Elasticsearch, Logstash and Kibana). It supports Netflow v5/v9, sFlow and IPFIX flow types (1.x versions support only Netflow v5/v9). This is an opensource project maintained by Rob Cowart and a really good alternative to compared other commercial NetFlow collectors. 
 
-Best way to get started with ElastiFlow is run this in a container. I have put together an ansible playbook that will take care of deploying this for you. 
+Best way to get started with ElastiFlow is to run this in a container. I have put together an ansible playbook that will take care of deploying this for you. 
 
 ```
 $ git clone https://github.com/ahmedjama/ansible-elastiflow-docker
@@ -69,10 +69,10 @@ Edit the inventory file `hosts` and replace the flowing with details of your Doc
 dockerhost01 ansible_host=<ip> ansible_user=<username> ansible_password=<pass> ansible_become_pass=<pass>
 ```
 
-* ansible_host=<ip>
-* ansible_user=<username> 
-* ansible_password=<pass> 
-* ansible_become_pass=<pass>
+* ansible_host=
+* ansible_user= 
+* ansible_password=
+* ansible_become_pass=
 
 
 After you edit these run the playbook
